@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="芊芊影音">
   <meta name="theme-color" content="#0a1a3f">
-  <title>芊芊影音上傳分享區</title>
+  <title>影音上傳分享區</title>
   <style>
     html, body { margin: 0; height: 100%; background: #0a1a3f; }
     iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -22,9 +22,7 @@
     title="芊芊影音上傳分享區"
     allow="camera; microphone; fullscreen; clipboard-write; web-share; autoplay; screen-wake-lock"
     referrerpolicy="no-referrer"></iframe>
-  <!-- 萬一嵌入失敗（畫面空白），底部有直接開啟的連結 -->
-  <div class="fallback"><a id="direct" href="#" target="_top">畫面空白？點這裡直接開啟</a></div>
-
+  
   <script>
     // Apps Script 的 exec 網址（重新部署時用「管理部署作業 → 編輯 → 新版本」，網址就不會變）
     var EXEC = 'https://script.google.com/macros/s/AKfycbxtPfQy2KG4ZBazK9Hw2R1AUIgKnpyuXNMXM386AlZt3jrIJJLVx_fkallEFGcuu-YQFw/exec';
@@ -32,8 +30,7 @@
     // 把網址後面的 ?t=團代碼（或 ?admin=1）原封不動轉給 Apps Script
     var url = EXEC + (location.search || '');
     document.getElementById('app').src = url;
-    document.getElementById('direct').href = url;
-
+    
     /* ===== 上傳時讓螢幕保持亮著 =====
        上傳頁開始上傳時會通知這裡，這一層是最外層，手機才肯讓它鎖住螢幕不熄 */
     var wakeLock = null;
